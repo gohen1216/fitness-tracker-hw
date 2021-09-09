@@ -1,4 +1,5 @@
 // Dependencies
+let { Workout } = require("./models/workout.js");
 
 const express = require('express');
 const path = require('path');
@@ -25,8 +26,16 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/fitness", {
 app.get('/exercise', (req, res) => res.sendFile(path.join(__dirname, '/public/exercise.html')));
 app.get('/stats', (req, res) => res.sendFile(path.join(__dirname, '/public/stats.html')));
 // Displays all notes
-app.get('/api/notes', (req, res) => {
-   
+app.get('/api/workouts', (req, res) => {
+  
+  Workout.find({})
+  .sort({ date: -1 })
+  .then(dbWorkouts => {
+    res.json(dbWorkouts);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
     
 
 });
