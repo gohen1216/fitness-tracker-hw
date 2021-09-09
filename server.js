@@ -22,8 +22,8 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/fitness", {
 
 
 
-app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
-
+app.get('/exercise', (req, res) => res.sendFile(path.join(__dirname, '/public/exercise.html')));
+app.get('/stats', (req, res) => res.sendFile(path.join(__dirname, '/public/stats.html')));
 // Displays all notes
 app.get('/api/notes', (req, res) => {
    
