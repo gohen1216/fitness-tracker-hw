@@ -43,13 +43,19 @@ app.get('/api/workouts', (req, res) => {
 
 
 // Create New notes - takes in JSON input
-app.post('/api/notes', (req, res) => {
+app.post('/api/workouts', (req, res) => {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  const newNote = req.body;
+  const newWorkouts = req.body;
 
   
- 
+  Workout.create(newWorkouts)
+  .then(dbWorkouts => {
+    res.json(dbWorkouts);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
     
   
  
