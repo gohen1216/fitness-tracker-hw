@@ -17,7 +17,7 @@
 
   ## Installation
   
-  Npm i
+  Npm install
   
  
   ## Usage
@@ -31,6 +31,10 @@
   ## Test
   
   
+
+
+https://user-images.githubusercontent.com/78391981/134439831-64ce8af8-6f5d-4a95-a360-e04a51cb275a.mp4
+
 
   ## License
   MIT
